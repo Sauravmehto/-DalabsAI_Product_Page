@@ -3,6 +3,16 @@
   publish = "dist"
   command = "npm run build"
 
+[build.environment]
+  # These are not sensitive: VITE_-prefixed vars are intentionally bundled
+  # into the public client JS by design, and SERVER_PORT/APP_URL/ANTHROPIC_MODEL
+  # are plain config values (port numbers, a public model name, a URL) that
+  # happen to collide with unrelated substrings in node_modules/minified
+  # output, tripping Netlify's secrets scanner as false positives. Real
+  # secrets (ANTHROPIC_API_KEY, JWT_SECRET, HUBSPOT_ACCESS_TOKEN, SMTP_*)
+  # are intentionally left OUT of this list so the scanner still catches them.
+  SECRETS_SCAN_OMIT_KEYS = "SERVER_PORT,APP_URL,ANTHROPIC_MODEL,TRIAL_DURATION_DAYS,VITE_LEAD_ENDPOINT,VITE_TEASER_VIDEO_URL,VITE_DEMO_VIDEO_URL,VITE_EVENT_BOOKING_URL,VITE_DEMO_BOOKING_URL,VITE_POST_EVENT_MEETING_URL,VITE_TRIAL_DURATION_DAYS"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
