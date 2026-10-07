@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DA One — Ask your data. Get the report.</title>
+    <meta
+      name="description"
+      content="DA One turns data from any source into trusted insights and faster reporting. Seamless Middle East 2026 — Dubai, 22–24 September."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DA One — Ask your data. Get the report." />
+    <meta
+      property="og:description"
+      content="Meet DataAlpha at Seamless Middle East 2026, or book a 20-minute demo."
+    />
+    <meta property="og:site_name" content="DA One" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="DA One" />
+    <meta
+      name="twitter:description"
+      content="Ask your data. Get the report. Seamless Middle East 2026."
+    />
+    <meta name="theme-color" content="#0B6E6A" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("da-theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DA One",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "DA One turns data from any source into trusted insights and faster reporting.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/OnlineOnly"
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "DataAlpha"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

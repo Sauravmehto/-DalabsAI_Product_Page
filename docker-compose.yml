@@ -1,0 +1,29 @@
+services:
+  app:
+    image: ${ECR_REPO:-629143592903.dkr.ecr.us-east-1.amazonaws.com/daone_website}:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      SERVER_PORT: 3001
+      APP_URL: ${APP_URL:-http://localhost:3001}
+      JWT_SECRET: ${JWT_SECRET}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      ANTHROPIC_BASE_URL: ${ANTHROPIC_BASE_URL}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL}
+      HUBSPOT_ACCESS_TOKEN: ${HUBSPOT_ACCESS_TOKEN}
+      VITE_DEMO_BOOKING_URL: ${VITE_DEMO_BOOKING_URL}
+    volumes:
+      - ./auth.db:/app/auth.db
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'node -e "fetch(''http://localhost:3001/api/health'').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"',
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
