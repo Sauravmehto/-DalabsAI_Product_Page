@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#081030"/>
+      <stop offset="100%" stop-color="#1C267D"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <g stroke="#ffffff" stroke-opacity="0.16" stroke-width="1">
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+  </g>
+  <g transform="translate(345,170)" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 30 L20 20 Q20 10 30 10 L80 10 Q90 10 90 20 L90 30"/>
+    <rect x="5" y="30" width="100" height="70" rx="8"/>
+    <line x1="5" y1="55" x2="105" y2="55"/>
+    <rect x="45" y="47" width="20" height="16" rx="2"/>
+  </g>
+  <text x="400" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" letter-spacing="2.5" fill="#ffffff" fill-opacity="0.55">ASSET MANAGEMENT</text>
+</svg>
