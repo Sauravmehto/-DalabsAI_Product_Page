@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: hsl(0 0% 100%);
+  --color-canvas-2: hsl(0 0% 96.1%);
+  --color-card: hsl(0 0% 100%);
+  --color-ink: hsl(229 70% 11%);
+  --color-ink-2: hsl(229 70% 20%);
+  --color-muted: hsl(229 70% 40%);
+  --color-line: hsl(0 0% 89.8%);
+  --color-line-strong: hsl(229 30% 75%);
+  --color-accent: hsl(234 63% 30%);
+  --color-accent-2: hsl(234 63% 22%);
+  --color-accent-soft: hsl(234 63% 96%);
+  --color-highlight: hsl(279 70% 35%);
+  --color-navy: hsl(229 70% 11%);
+  --color-sand: hsl(234 40% 70%);
+  --color-success: hsl(142 71% 30%);
+
+  --radius-btn: 10px;
+  --radius-card: 18px;
+  --radius-frame: 28px;
+
+  --shadow-card: 0 1px 2px rgb(12 18 32 / 0.04), 0 12px 32px rgb(12 18 32 / 0.06);
+  --shadow-frame: 0 24px 60px rgb(12 18 32 / 0.14);
+
+  --animate-fade-in-up: fade-in-up 0.4s ease-out;
+}
+
+.dark {
+  --color-canvas: hsl(229 70% 11%);
+  --color-canvas-2: hsl(229 70% 20%);
+  --color-card: hsl(229 70% 15%);
+  --color-ink: hsl(210 40% 98%);
+  --color-ink-2: hsl(210 40% 90%);
+  --color-muted: hsl(210 40% 65%);
+  --color-line: hsl(229 70% 22%);
+  --color-line-strong: hsl(229 40% 32%);
+  --color-accent: hsl(234 63% 62%);
+  --color-accent-2: hsl(234 63% 72%);
+  --color-accent-soft: hsl(234 63% 22%);
+  --color-highlight: hsl(279 70% 65%);
+  --color-success: hsl(142 60% 45%);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    overflow-x: hidden;
+  }
+
+  html.dark,
+  html.dark body {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-accent) 22%, white);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .particle {
+    animation: da-particle 1.8s linear infinite;
+  }
+}
+
+@keyframes da-particle {
+  from {
+    top: -4px;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
