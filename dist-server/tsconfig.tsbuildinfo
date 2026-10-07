@@ -1,0 +1,1 @@
+{"root":["../server/db.ts","../server/email.ts","../server/hubspot.ts","../server/index.ts","../server/validation.ts","../server/routes/auth.ts","../server/routes/chat.ts","../server/routes/contact.ts"],"version":"5.9.3"}
